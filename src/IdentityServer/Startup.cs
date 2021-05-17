@@ -30,12 +30,12 @@ namespace IdentityServer
                 .AddTestUsers(TestUsers.Users)
                 .AddConfigurationStore(options =>
                 {
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString,
+                    options.ConfigureDbContext = b => b.UseNpgsql(connectionString,
                         sql => sql.MigrationsAssembly(migrationsAssembly));
                 })
                 .AddOperationalStore(options =>
                 {
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString,
+                    options.ConfigureDbContext = b => b.UseNpgsql(connectionString,
                         sql => sql.MigrationsAssembly(migrationsAssembly));
                 });
 
